@@ -1,0 +1,15 @@
+<div class = 'form-inline'>
+  <form role = 'form' method = 'POST' action = '/sessions'>
+    <label for='user_email'>email:</label>
+    <input class = 'form-control' placeholder='Email address' type='string' name='user[email]'/>
+    <label for='user_password'>password:</label>
+    <input class = 'form-control' placeholder='Password' type='password' name
+='user[password]'/>
+    <input class = 'btn btn-default' type='submit' value='sign in' class='sub
+mit'/>
+  </form>
+  <%= link_to 'create account', new_user_path %>
+</div>
+
+
+
