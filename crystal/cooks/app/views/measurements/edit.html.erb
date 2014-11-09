@@ -1,0 +1,7 @@
+<%= @measurement.ingredient.name %>
+<br>
+<%=form_for @measurement do |f| %>
+  <%= f.number_field :percent %>
+  <%= f.submit %>
+<% end %>
+

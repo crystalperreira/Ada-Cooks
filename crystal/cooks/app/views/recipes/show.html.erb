@@ -1,1 +1,28 @@
-Show recipe here within links to edit stuff
+<h2><%= @recipe.title %></h2>
+<%= @recipe.description %>
+<br>
+<% if @recipe.public %>
+  <%= "public" %>
+<% else %>
+  <%= "private"  %>
+<% end %>
+<br>
+<%= link_to 'Edit', edit_recipe_path(@recipe.id)%>
+<br>
+<table>
+  <tr>
+    <th>%</th>
+    <th>Ingredient</th>
+    <th>Delete?</th>
+    <th>Edit?</th>
+  </tr>
+<% @combined.each do |triple|%>
+  <tr>
+    <td><%= triple[0] %> </td>
+    <td><%= triple[1] %> </td>
+    <td><%=button_to 'Delete', measurement_path(triple[2]), data: {confirm: 'Are you sure?'}, method: :delete %></td>
+    <td><%=link_to 'Edit', edit_measurement_path(triple[2])%></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'Add ingredient', new_measurement_path(@recipe.id) %>

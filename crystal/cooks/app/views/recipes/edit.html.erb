@@ -1,0 +1,6 @@
+<%= form_for @recipe do |f| %>
+  Title: <%= f.text_field :title %>
+  Description: <%= f.text_field :description %>
+  Public: <%= f.check_box :public %>
+  <%= f.submit %>
+<% end %>
