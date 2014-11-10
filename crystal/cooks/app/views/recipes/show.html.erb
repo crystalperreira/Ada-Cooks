@@ -25,4 +25,5 @@
   </tr>
 <% end %>
 </table>
-<%= link_to 'Add ingredient', new_measurement_path(@recipe.id) %>
+<% holder = @recipe.id %>
+<%= link_to 'Add ingredient', new_measurement_path(holder) %>

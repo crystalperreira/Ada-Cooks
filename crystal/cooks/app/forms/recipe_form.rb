@@ -20,4 +20,17 @@ class RecipeForm
     end
   end
 
+  def update(params)
+    @attributes[:ingredients].each do |hash|
+      if hash.flatten[1][:checked]
+        new = Measurement.new
+        new.ingredient_id = hash.flatten[0]
+        new.recipe_id = params
+        new.percent = hash.flatten[1][:percent]
+        new.save
+      end
+    end
+  end
+      
+
 end

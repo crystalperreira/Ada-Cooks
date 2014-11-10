@@ -1,15 +1,19 @@
 Add ingredients 
-<%= form_tag measurement_path do %>
+<%= params[:format] %>
+<table>
+<%=form_tag({:controller => "measurements", :action => "create"}, {:method => "post"}) do%>
   <%= hidden_field_tag :recipe_id, params[:format] %>
-  <table>
   <% Ingredient.all.each do |ing| %>
     <tr>
-      <td><%= check_box_tag "recipe_form[ingredients][#{ing.id}][checked]", true, false, id: "
-ngredient_#{ing.id}"%></td>
-      <td><%= number_field_tag "recipe_form[ingredients][#{ing.id}][percent]" %></td>
-      <td><%= label_tag "ingredient_#{ing.id}", ing.name %></td>
+    <td><%= check_box_tag "recipe_form[ingredients][#{ing.id}][checked]", true, false, id: "ingredien
+ t_#{ing.id}"%></td>
+       <td><%= number_field_tag "recipe_form[ingredients][#{ing.id}][percent]" %></td>
+       <td><%= label_tag "ingredient_#{ing.id}", ing.name %></td>
+     </tr>
+   <% end %>
+   <br>
+ </table>
+   <%= submit_tag value="Add measurements"%>
     </tr>
-  <% end %>
-  </table>
-  <%= submit_tag %>
 <% end %>
+</table>

@@ -4,13 +4,19 @@ class MeasurementsController < ApplicationController
   end
 
   def create
-    raise
-    @measurement = Measurement.new(params.require(:measurement).permit(:percent, :ingredient_id, :recipe_id))
-    if @measurement.save
-      redirect_to recipe_path(@measurement.recipe_id)
-    else
-     render :new  
-    end
+    # @measurement = Measurement.new(params.require(:ingredient).permit(:percent, :ingredient_id, :recipe_id))
+    # if @measurement.save
+      #redirect_to recipe_path(@measurement.recipe_id)
+    #else
+     #render :new  
+    #end
+    
+    @recipe_form = RecipeForm.new(params[:recipe_form])
+      if @recipe_form.update(params[:recipe_id])
+        redirect_to recipe_path(params[:recipe_id])
+      else
+        render :new
+      end
   end
 
   def new
