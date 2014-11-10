@@ -2,5 +2,6 @@
   <%= render 'login' %>
 <% else %>
   <%= link_to 'new recipe', new_recipe_path %>
+  <%= link_to 'new ingredient', new_ingredient_path %>
   <%= link_to 'logout', session_path(session[:user_id]), method: :delete %>
 <% end %>

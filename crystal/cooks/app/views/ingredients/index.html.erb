@@ -1,0 +1,9 @@
+Ingredients
+<table>
+  <% @ingredients.each do |ing| %>
+    <tr>
+      <td><%= ing.name %></td>
+      <td><%=link_to "Edit", edit_ingredient_path(ing.id) %></td>
+    </tr>
+  <% end %>
+</table>
